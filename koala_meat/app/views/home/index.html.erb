@@ -1,14 +1,30 @@
 
 
 <h1> KoalaMeat!</h1>
-<div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
-        <%= link_to "Log In", 'login' %>
+<!--<div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
+        <%= link_to "Log In", '/log_in' %>
 
       
 </div>
-<div id="login">
-  
+<div style="position: absolute; top: 0; right: 0; width: 100px;">
+        <%= link_to "Sign Up", '/sign_up' %>
+      
+</div>-->
+
+<div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
+  <% if current_user %>
+    <!--
+    #This is my XSS-able version
+    Logged in as <%= raw(current_user.email) %>.
+    -->
+    Logged in as <%= current_user.email %>.
+    <%= link_to "Log out", log_out_path %>
+  <% else %>
+    <%= link_to "Sign up", sign_up_path %> or
+    <%= link_to "Log in", log_in_path %>
+  <% end %>
 </div>
+
 <div id="navigator">
   <button class="buttons">Home</button>
   <button class="buttons">Catalog</button>
