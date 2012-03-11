@@ -1,4 +1,6 @@
 <h1> KoalaMeat!</h1>
+ <img src="/assets/bamboo.jpg" alt="background image" id="bg" />
+
 <div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
   <% if current_user %>
    
@@ -6,35 +8,38 @@
 
     <%= link_to "Log out", log_out_path %>
       <% if current_user.admin? %>
-     <%=link_to "Admin Portal", admin_path %>
+        <%=link_to "Admin Portal", admin_path,  {:style=>'text=#FFFFFF;'} %>
       <% end %> 
   <% end %>
 </div>
 
-<div id="welcome">
-  <img src="/assets/welcome.jpg"/>
-</div>
 
 <style type="text/css" media="screen">
 
 body
 {
 background-color:#E8E8E8;
+
 }
 h1
 {
-color:#404040 ;
+color:#FFFFFF ;
 text-align:center;
 font-family:"Times New Roman";
 font-size:100px;
+position:relative;
+z-index:1;
 }
-#welcome
-{
-text-align: center;
+img#bg {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
 }
-.buttons
+#user_nav
 {
-color:#336666;
-font-size:25px;
+ color: #FFFFFF;   
 }
 
+</style>

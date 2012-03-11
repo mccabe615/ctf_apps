@@ -1,4 +1,10 @@
 class AdminController < ApplicationController
+  helper_method :users
+  
+  def users
+    @users = User.all
+    return @users
+  end
   
   def portal
     check("portal")
