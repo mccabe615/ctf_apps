@@ -14,9 +14,9 @@
   <th>Username</th>
   <th>Role: Admin</th>
   </tr>
-  <% users.each do |user| %>   
+  <% users.each do |email, role| %>   
   <tr>  
-    <td width="20%"><%= user.email%></td><td><%=user.admin?%></td>
+    <td width="20%"><%=email%></td><td><%=role%></td>
   </tr>
   <% end %>
   </table>

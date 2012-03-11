@@ -2,8 +2,14 @@ class AdminController < ApplicationController
   helper_method :users
   
   def users
-    @users = User.all
-    return @users
+    users = User.all
+    user_h = {}
+    users.each do |user|
+      role = user.admin? ? "Admin" : "User"
+      user_h[user.email] = role
+    end
+     sorted = user_h.sort_by{|k,v| v}
+     return sorted
   end
   
   def portal

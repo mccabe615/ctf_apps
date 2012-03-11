@@ -7,7 +7,7 @@
     Logged in as <%= raw(current_user.email) %>.
     -->
     Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", log_out_path %>
+    <%= link_to "Log out", log_out_path,  :class => "a"%>
   <% else %>
     <%= link_to "Sign up", sign_up_path %> or
     <%= link_to "Log in", log_in_path %>
@@ -51,9 +51,29 @@ color: #FFFFFF;
 position:relative;
 z-index:1;
 }
+#user_nav
+{
+text-align: center;
+color: #FFFFFF;
+position:relative;
+z-index:1;
+}
 .buttons
 {
 color:#336666;
 font-size:25px;
+}
+a {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #FFFFFF;
 }
 
