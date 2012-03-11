@@ -1,11 +1,11 @@
 <h1> KoalaMeat!</h1>
 <div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
   <% if current_user %>
-    <!--
-    #This is my XSS-able version
+   
+    <!--#This is my XSS-able version-->
     Logged in as <%= raw(current_user.email) %>.
-    -->
-    Logged in as <%= current_user.email %>.
+
+    <!--Logged in as <%= current_user.email %>.-->
     <%= link_to "Log out", log_out_path %>
   <% else %>
     <%= link_to "Sign up", sign_up_path %> or
