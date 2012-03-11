@@ -1,4 +1,4 @@
-<h1> Admin Portal </h1>
+<h1> User Management </h1>
 <div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
   <% if current_user %>
     <!--
@@ -8,11 +8,6 @@
     Logged in as <%= current_user.email %>.
     <%= link_to "Log out", log_out_path %>
   <% end %>
-</div>
-
-<div id="navigator">
- <%= button_to "DB Maint.", {:controller => "admin", :action => "maint" }, {:class => "buttons" } %>
- <%= button_to "User Mgmt.", {:controller => "admin", :action => "mgmt" }, {:class => "buttons" } %>
 </div>
 
 <style type="text/css" media="screen">
@@ -28,14 +23,3 @@ text-align:center;
 font-family:"Times New Roman";
 font-size:100px;
 }
-#navigator
-{
-text-align: justify;
-}
-.buttons
-{
-color:#336666;
-width: 300px;
-font-size:25px;
-}
-
