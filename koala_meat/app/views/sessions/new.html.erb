@@ -1,5 +1,5 @@
 <h1>Log in</h1>
-
+<div id="login" >
 <%= form_tag sessions_path do %>
   <p>
     <%= label_tag :email %><br />
@@ -11,3 +11,22 @@
   </p>
   <p class="button"><%= submit_tag "Log in" %></p>
 <% end %>
+</div>
+
+<style type="text/css" media="screen">
+
+body
+{
+background-color:#E8E8E8;
+}
+h1
+{
+color:#404040 ;
+text-align:center;
+font-family:"Times New Roman";
+font-size:100px;
+}
+#login
+{
+text-align: center;
+}

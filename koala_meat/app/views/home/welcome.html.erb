@@ -7,10 +7,13 @@
     -->
     Logged in as <%= current_user.email %>.
     <%= link_to "Log out", log_out_path %>
+      <% if current_user.admin? %>
+     <%=link_to "Admin Portal", admin_path %>
+      <% end %> 
   <% end %>
 </div>
 
-<div id="navigator">
+<div id="welcome">
   <img src="/assets/welcome.jpg"/>
 </div>
 
@@ -27,7 +30,7 @@ text-align:center;
 font-family:"Times New Roman";
 font-size:100px;
 }
-#navigator
+#welcome
 {
 text-align: center;
 }
