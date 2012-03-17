@@ -8,7 +8,7 @@
 
     <%= link_to "Log out", log_out_path %>
       <% if current_user.admin? %>
-        <%=link_to "Admin Portal", admin_path,  {:style=>'text=#FFFFFF;'} %>
+        <%=link_to "Admin Portal", admin_path, :class => "a"%>
       <% end %> 
   <% end %>
 </div>
@@ -41,5 +41,16 @@ img#bg {
 {
  color: #FFFFFF;   
 }
+a {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
 
-</style>
+a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #FFFFFF;
+}

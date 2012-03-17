@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  helper_method :users
+  helper_method :users, :user_id
   
   def users
     users = User.all
@@ -24,10 +24,14 @@ class AdminController < ApplicationController
     check("mgmt")
   end
   
+  def edit_user
+   
+  end
+  
   private
   
   def check(render_url)
-     if current_user && current_user.admin?
+    if current_user && current_user.admin?
       render "#{render_url}"
     else
       redirect_to root_url
