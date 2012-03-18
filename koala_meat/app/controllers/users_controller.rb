@@ -13,5 +13,13 @@ class UsersController < ApplicationController
       render "new"
     end
   end
+  
+  def update
+  end
+  
+  # 
+  def self.role_bool
+     return [true, false]
+  end
 
 end

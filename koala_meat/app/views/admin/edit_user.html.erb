@@ -25,7 +25,18 @@
       <%= f.password_field :password, {:class => "textbox"} %>
       </br>
     </p>
-      <%= button_to "Update", {:controller => "admin", :action => "maint" }, {:class => "buttons" }%>
+    <p>
+      <%= f.label :password_confirmation %>
+      <br>
+      <%= f.password_field :password_confirmation %>
+      </br>
+      <br>
+        <p>
+          <%= select("user", "admin", UsersController.role_bool, { :include_blank => false }) %>
+        </p>
+      </br>
+    </p>
+      <%= button_to "Update", {:controller => "users", :action => "update" }, {:class => "buttons" }%>
   <% end %>    
 </div>
 

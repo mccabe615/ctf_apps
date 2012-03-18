@@ -7,6 +7,7 @@ KoalaMeat::Application.routes.draw do
   match '/maint', :to => "admin#maint", :as => "maint"
   match '/mgmt', :to => "admin#mgmt", :as => "mgmt"
   match '/mgmt/edit_user', :to => "admin#edit_user", :as => "edit_user"
+  match '/users/update', :to => "users#update", :as => "update"
   resources :users
   resources :sessions
   
