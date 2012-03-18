@@ -17,7 +17,7 @@
   </tr>
   <% users.each do |email, role| %>   
   <tr>  
-    <td width="20%"><%=link_to email, edit_user_path(:user_id => "test")%></td><td><%=role%></td>
+    <td width="20%"><%=link_to email, edit_user_path(:user_id => email)%></td><td><%=role%></td>
   </tr>
   <% end %>
   </table>

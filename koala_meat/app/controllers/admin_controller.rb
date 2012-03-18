@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  helper_method :users, :user_id
+  helper_method :users
   
   def users
     users = User.all
@@ -25,7 +25,12 @@ class AdminController < ApplicationController
   end
   
   def edit_user
-   
+   @user = User.find_by_email(params[:user_id]) if params[:user_id]
+   puts @user.password
+   @user_id = params[:user_id] if params[:user_id]
+   if not current_user && current_user.admin?
+     destroy
+   end
   end
   
   private
@@ -34,7 +39,7 @@ class AdminController < ApplicationController
     if current_user && current_user.admin?
       render "#{render_url}"
     else
-      redirect_to root_url
+      destroy
     end
   end
   

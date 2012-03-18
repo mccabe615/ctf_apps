@@ -1,4 +1,5 @@
 <h1> Database Maintenance </h1>
+<img src="/assets/bamboo.jpg" alt="background image" id="bg" />
 <div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
   <% if current_user %>
     <!--
@@ -6,7 +7,7 @@
     Logged in as <%= raw(current_user.email) %>.
     -->
     Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", log_out_path %>
+    <%= link_to "Log out", log_out_path, :class => "a" %>
   <% end %>
 </div>
 
@@ -18,8 +19,37 @@ background-color:#E8E8E8;
 }
 h1
 {
-color:#404040 ;
+color:#FFFFFF ;
 text-align:center;
 font-family:"Times New Roman";
 font-size:100px;
+position:relative;
+z-index:1;
 }
+#user_nav
+{
+color:#FFFFFF ;
+position:relative;
+z-index:1;
+}
+img#bg
+{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+}
+a {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #FFFFFF;
+{
