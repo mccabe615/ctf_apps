@@ -32,7 +32,10 @@
       </br>
       <br>
         <p>
+           <%= f.label :admin %>
+           <br>
           <%= select("user", "admin", UsersController.role_bool, { :include_blank => false }) %>
+           </br>
         </p>
       </br>
     </p>

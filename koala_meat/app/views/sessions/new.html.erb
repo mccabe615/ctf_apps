@@ -1,5 +1,8 @@
 <h1>Log in</h1>
  <img src="/assets/bamboo.jpg" alt="background image" id="bg" />
+ <% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_notice" %>
+<% end %>
 <div id="login" >
 <%= form_tag sessions_path do %>
   <p>
@@ -11,35 +14,8 @@
     <%= password_field_tag :password %>
   </p>
   <p class="button"><%= submit_tag "Log in" %></p>
+  <p <%= link_to "Forgot Password", {:controller => "users", :action => "forgot_password" }, {:class => "links" }%> </p>
 <% end %>
 </div>
 
-<style type="text/css" media="screen">
 
-body
-{
-background-color:#E8E8E8;
-}
-h1
-{
-color:#FFFFFF ;
-text-align:center;
-font-family:"Times New Roman";
-font-size:100px;
-position:relative;
-z-index:1;
-}
-#login
-{
-color: #FFFFFF;
-position:relative;
-z-index:1;
-text-align: center;
-}
-img#bg {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-}

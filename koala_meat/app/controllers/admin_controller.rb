@@ -26,7 +26,6 @@ class AdminController < ApplicationController
   
   def edit_user
    @user = User.find_by_email(params[:user_id]) if params[:user_id]
-   puts @user.password
    @user_id = params[:user_id] if params[:user_id]
    if not current_user && current_user.admin?
      destroy
