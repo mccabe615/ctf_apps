@@ -12,7 +12,8 @@
 </div>
 
 <div id="edit" >
-  <%= form_for(@user) do |f| %>
+  <% if @user %>
+  <%=form_for(@user) do |f|%>
     <p>
       <%= f.label :email %>
       <br>
@@ -40,7 +41,10 @@
       </br>
     </p>
       <%= button_to "Update", {:controller => "users", :action => "update" }, {:class => "buttons" }%>
-  <% end %>    
+    <% end %>
+    <% else %>
+      <script> alert('CAN\'T FAULT YOU FOR TRYING!')</script>
+  <% end %>
 </div>
 
 <style type="text/css" media="screen">
