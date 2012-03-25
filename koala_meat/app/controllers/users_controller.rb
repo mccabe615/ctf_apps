@@ -16,7 +16,6 @@ class UsersController < ApplicationController
   
   def update
      if current_user && current_user.admin?
-      puts "admin"
       @user = User.find(params[:id])
          if @user.update_attributes(params[:user])
             flash[:success] = "Profile updated"
@@ -52,6 +51,7 @@ class UsersController < ApplicationController
      second_word = ['OWA', 'SP', 'CONF', 'EREN', 'CE']
      four_digits = ['1337', '1445', '702', '918', '1600']
      random_pass = first_word[rand(first_word.length)] + four_digits[rand(four_digits.length)] + second_word[rand(second_word.length)].to_s
+     #puts random_pass
      user = User.find_by_email(email)
      user.encrypt_password(random_pass)
      user.save!
@@ -60,6 +60,10 @@ class UsersController < ApplicationController
   
   def email_password(pass)
      #Stubbed, have to do something here to actually email this stuff out
+  end
+  
+  def test
+     render :text => "Here is your key: shabadabadoo2343343234556992308423"
   end
   
 
