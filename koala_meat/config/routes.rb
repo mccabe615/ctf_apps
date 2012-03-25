@@ -4,12 +4,12 @@ KoalaMeat::Application.routes.draw do
   get "sign_up" => "users#new", :as => "sign_up"
   get "admin"   => "admin#portal", :as => "admin"
   get "forgot_password" => "users#forgot_password", :as => "forgot_password"
+  post "forgot_password" => "users#forgot_password", :as => "forgot_password"
   match '/welcome', :to => "home#welcome", :as => "welcome"
   match '/maint', :to => "admin#maint", :as => "maint"
   match '/mgmt', :to => "admin#mgmt", :as => "mgmt"
   match '/mgmt/edit_user', :to => "admin#edit_user", :as => "edit_user"
   match '/users/update', :to => "users#update", :as => "update"
-  
   resources :users
   resources :sessions
   

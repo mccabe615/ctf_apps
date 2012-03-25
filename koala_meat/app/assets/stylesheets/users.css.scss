@@ -21,6 +21,13 @@ color:#FFFFFF ;
 position:relative;
 z-index:1;
 }
+#forgot_pwd
+{
+color: #FFFFFF;
+position:relative;
+z-index:1;
+text-align: center;
+}
 img#bg
 {
 position:fixed;
@@ -35,4 +42,17 @@ color: #FFFFFF;
 position:relative;
 z-index:1;
 text-align: center; 
+}
+a {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #FFFFFF;
 }
