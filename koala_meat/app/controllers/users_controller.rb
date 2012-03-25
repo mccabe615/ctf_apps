@@ -37,7 +37,7 @@ class UsersController < ApplicationController
      if request.post? && !params[:email].nil? && !params[:email].empty?
         email = User.find_by_email(params[:email])
         if !email.nil?
-           # This is stubbed code, needs to basically have a method which sends an email to our contestant
+           generate_and_change_password(params[:email])
            flash[:success] = "Email sent!"
         elsif email.nil?
            flash[:failure] = "Email not found"
@@ -45,6 +45,21 @@ class UsersController < ApplicationController
       elsif (request.post?) && (params[:email].nil? || params[:email].empty?)
          render :text => "<script>alert('Nice Try Pal')</script>"
       end 
+  end
+  
+  def generate_and_change_password(email)
+     first_word = ['AS', 'DC', 'CTF', '20', '12']
+     second_word = ['OWA', 'SP', 'CONF', 'EREN', 'CE']
+     four_digits = ['1337', '1445', '702', '918', '1600']
+     random_pass = first_word[rand(first_word.length)] + four_digits[rand(four_digits.length)] + second_word[rand(second_word.length)].to_s
+     user = User.find_by_email(email)
+     user.encrypt_password(random_pass)
+     user.save!
+     email_password(random_pass)
+  end
+  
+  def email_password(pass)
+     #Stubbed, have to do something here to actually email this stuff out
   end
   
 
