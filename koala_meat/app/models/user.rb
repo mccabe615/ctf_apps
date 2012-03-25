@@ -5,8 +5,11 @@ class User < ActiveRecord::Base
   
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
-  validates_presence_of :email
-  validates_uniqueness_of :email
+  validates :email, :presence => true, 
+                    :length => {:minimum => 3, :maximum => 254},
+                    :uniqueness => true,
+                    :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
+
   
   def self.authenticate(email, password)
     user = find_by_email(email)

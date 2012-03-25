@@ -16,3 +16,10 @@ sa_user.updated_at = Time.now
 sa_user.password = "shamalongadingdong"
 sa_user.save!
 
+normal_user = User.new
+normal_user.email = "test@koala_meat.com"
+normal_user.admin = false
+normal_user.created_at = Time.now
+normal_user.updated_at = Time.now
+normal_user.password = "test"
+normal_user.save!
