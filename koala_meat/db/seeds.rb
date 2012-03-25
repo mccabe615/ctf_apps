@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
+#   shamalongadingdong :password_hash => "$2a$10$SmA9YfTeVJ1MSl5K0j8fYO1PPeTqZF6OLITBDHBD8uIqLPFI4iGNi", :password_salt => "$2a$10$SmA9YfTeVJ1MSl5K0j8fYO"
+
+
+sa_user = User.new
+sa_user.email = "superadmin@koala_meat.com"
+sa_user.admin = true
+sa_user.created_at = Time.now
+sa_user.updated_at = Time.now
+sa_user.password = "shamalongadingdong"
+sa_user.save!
+
