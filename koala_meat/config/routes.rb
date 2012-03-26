@@ -6,6 +6,11 @@ KoalaMeat::Application.routes.draw do
   get "admin"   => "admin#portal", :as => "admin"
   get "forgot_password" => "users#forgot_password", :as => "forgot_password"
   post "forgot_password" => "users#forgot_password", :as => "forgot_password"
+  get "catalog" => "home#catalog", :as => "catalog"
+  get "contact_us" => "home#contact_us", :as => "contact_us"
+  get "about_us" => "home#about_us", :as => "about_us"
+  post "clean_up" => "admin#clean_up", :as => "clean_up"
+  
   match '/welcome', :to => "home#welcome", :as => "welcome"
   match '/maint', :to => "admin#maint", :as => "maint"
   match '/mgmt', :to => "admin#mgmt", :as => "mgmt"

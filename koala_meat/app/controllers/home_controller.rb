@@ -9,5 +9,14 @@ class HomeController < ApplicationController
    redirect_to root_url if current_user.nil?
    return if current_user.nil?
   end
+  
+  def catalog
+  end
+  
+  def contact_us
+  end
+  
+  def about_us
+  end
 
 end

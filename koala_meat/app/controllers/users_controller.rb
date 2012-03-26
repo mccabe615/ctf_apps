@@ -17,9 +17,11 @@ class UsersController < ApplicationController
   def update
      if current_user && current_user.admin?
       @user = User.find(params[:id])
-         if @user.update_attributes(params[:user])
+         if @user.email != "superadmin@koala_meat.com" && @user.update_attributes(params[:user])
             flash[:success] = "Profile updated"
             redirect_to mgmt_url
+         else
+            render :text => '<script>alert("That would have ben sooooo cool if it worked")</script>'
          end
      else
         destroy

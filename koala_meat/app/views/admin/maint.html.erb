@@ -10,46 +10,14 @@
     <%= link_to "Log out", log_out_path, :class => "a" %>
   <% end %>
 </div>
+  
+<%= form_tag("/clean_up", :method => "post") do %>
+  <%=  hidden_field "file", 'cleanup.rb' %>
+  <%=  submit_tag "Cleanup Function", {:class => "buttons"} %>
+<% end %>
+<p>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_notice" %>
+<% end %>
+</p>
 
-<style type="text/css" media="screen">
-
-body
-{
-background-color:#E8E8E8;
-}
-h1
-{
-color:#FFFFFF ;
-text-align:center;
-font-family:"Times New Roman";
-font-size:100px;
-position:relative;
-z-index:1;
-}
-#user_nav
-{
-color:#FFFFFF ;
-position:relative;
-z-index:1;
-}
-img#bg
-{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-}
-a {
-  color: #FFFFFF;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: #FFFFFF;
-  text-decoration: underline;
-}
-
-a:visited {
-  color: #FFFFFF;
-{
