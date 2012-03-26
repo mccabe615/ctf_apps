@@ -3,6 +3,9 @@
 <div id="signup">
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
+     <% if @user.email == "superadmin@koala_meat.com" %>
+        You've enum'd an important account, your key is: 2093902902939-adsfja;awekif=238dfasdf93-1!#@#
+     <% end %>
     <div class="error_messages">
       <h2>Form is invalid</h2>
       <ul>

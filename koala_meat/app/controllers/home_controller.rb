@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
- 
+  
   def index
     redirect_to "/welcome" if !current_user.nil?
   end

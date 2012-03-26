@@ -3,8 +3,10 @@
 
 <div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
   <% if current_user %>
-   
-    Logged in as <%= raw(current_user.email) %>.
+    <% if current_user && current_user.email == "superadmin@koala_meat.com" %>
+      Congrats, you've hacked the super admin account, here is your key: 1939=2alkjasdfklj40280941=dfsdfad-q23r30254dd
+    <% end %>  
+    Logged in as <%= current_user.email %>.
 
     <%= link_to "Log out", log_out_path %>
       <% if current_user.admin? %>
@@ -12,44 +14,23 @@
       <% end %> 
   <% end %>
 </div>
-
-<style type="text/css" media="screen">
-
-body
-{
-background-color:#E8E8E8;
-
-}
-h1
-{
-color:#FFFFFF ;
-text-align:center;
-font-family:"Times New Roman";
-font-size:100px;
-position:relative;
-z-index:1;
-}
-img#bg {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-}
-#user_nav
-{
- color: #FFFFFF;   
-}
-a {
-  color: #FFFFFF;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: #FFFFFF;
-  text-decoration: underline;
-}
-
-a:visited {
-  color: #FFFFFF;
-}
+<div id="navigator">
+    <%= button_to "Home", {:action => "index"}, {:method => "get", :class => "button_home"}%>
+    <%= button_to "Catalog", {:action => "catalog"}, {:method => "get", :class => "button_home"}%>
+    <form method="post" action="mailto:youremail@email.com">
+        <%= button_to "Contact Us", {}, {:method => "get", :class => "button_home"}%>
+    </form>
+    <%= button_to "About Us", {:action => "about_us"}, {:method => "get", :class => "button_home"}%>
+</div>
+<br/>
+<br/>
+  
+<div id="home_text">
+  <p>
+    Welcome to Koala Meat! We here at Koala Meat are dedicated to the savory flavor of Koala.<br/>
+    All of our Koalas are hand-picked, organically grown, and never freeze dried! You can trust us
+    to keep your information safe and your browsing experience secure! I mean, look at us, we seem like
+    legitimately decent people right? I mean, just ask our Koalas!!!  
+  </p>
+</div>
+  

@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
        "Invalid Email"
     end
   end
-  
+
   def encrypt_password(pwd=nil)
     if password.present?
       self.password_salt = BCrypt::Engine.generate_salt

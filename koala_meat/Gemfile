@@ -25,6 +25,9 @@ gem "bcrypt-ruby", :require => "bcrypt"
 # Use unicorn as the web server
 gem 'unicorn'
 
+# Pictures
+gem 'rmagick'
+
 # Deploy with Capistrano
 # gem 'capistrano'
 
