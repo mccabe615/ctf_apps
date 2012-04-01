@@ -15,10 +15,15 @@ class HomeController < ApplicationController
    (1..9).each {|i| @photos.push("kb#{i}.jpg")}
   end
   
+  # Nothing needed here
   def contact_us
   end
   
+  # Nothing needed here
   def about_us
+  end
+  
+  def show_catalog_item
   end
 
 end

@@ -10,6 +10,7 @@ KoalaMeat::Application.routes.draw do
   get "contact_us" => "home#contact_us", :as => "contact_us"
   get "about_us" => "home#about_us", :as => "about_us"
   post "clean_up" => "admin#clean_up", :as => "clean_up"
+  get "show_catalog_item", :to => "home#show_catalog_item", :as => "show_catalog_item"
   
   match '/welcome', :to => "home#welcome", :as => "welcome"
   match '/maint', :to => "admin#maint", :as => "maint"
