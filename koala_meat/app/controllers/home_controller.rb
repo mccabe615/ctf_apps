@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
   
+  def new
+  end
+  
   def index
     redirect_to "/welcome" if !current_user.nil?
   end
@@ -24,6 +27,10 @@ class HomeController < ApplicationController
   end
   
   def show_catalog_item
+    @catalog_item = Catalog.find_by_item_num(params[:cat_id])
+    if !@catalog_item 
+      redirect_to catalog_path
+    end
   end
 
 end
