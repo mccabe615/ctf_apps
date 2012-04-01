@@ -12,7 +12,9 @@ color: #FFFFFF;
 position:relative;
 z-index:1;
 text-align: center;
-margin-left: 300px;
+margin-left: auto;
+margin-right: auto;
+width: 900px;
 }
 #home_text
 {
@@ -21,10 +23,15 @@ margin-left: 250px;
 width:1000px;
 color: #FFFFFF;
 position:relative;
-z-index:1;
+z-index:2;
 text-align: left;
 font-size:25px;
 }
+#test{
+  position:relative;
+  margin-top: 200px;
+}
+
 .button_home
 {
 color:#336666;

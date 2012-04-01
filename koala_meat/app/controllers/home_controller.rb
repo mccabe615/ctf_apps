@@ -11,6 +11,8 @@ class HomeController < ApplicationController
   end
   
   def catalog
+   @photos =[]
+   (1..9).each {|i| @photos.push("kb#{i}.jpg")}
   end
   
   def contact_us

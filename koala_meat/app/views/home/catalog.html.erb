@@ -11,19 +11,41 @@
   <% end %>
 </div>
 
+
 <div id="navigator">
-    <%= button_to "Home", {:action => "index"}, {:method => "get", :class => "button_home"}%>
-    <%= button_to "Catalog", {:action => "catalog"}, {:method => "get", :class => "button_home"}%>
-    <form method="post" action="mailto:help@koala_meat">
+  <td>  <%= button_to "Home", {:action => "index"}, {:method => "get", :class => "button_home"}%></td>
+   <td> <%= button_to "Catalog", {:action => "catalog"}, {:method => "get", :class => "button_home"}%></td>
+   <td> <form method="post" action="mailto:help@koala_meat">
         <%= button_to "Contact Us", {}, {:method => "get", :class => "button_home"}%>
     </form>
-    <%= button_to "About Us", {:action => "about_us"}, {:method => "get", :class => "button_home"}%>
+   </td>
+    <td><%= button_to "About Us", {:action => "about_us"}, {:method => "get", :class => "button_home"}%></td>
 </div>
-<br/>
-<br/>
-  
-<div id="home_text">
-  <p>
-    
-  </p>
-</div>
+
+
+<table id="test" align="center" border="0" cellpadding="5" cellspacing="5" width="50%">
+  <tr>
+    <% @photos[0..2].each do |photo| %>
+    <td>
+      <%= image_tag(photo) %> 
+      <p><%= link_to "Hi!", test_path %><p>
+    </td>
+    <%end%>
+  </tr>
+  <tr>
+    <% @photos[3..5].each do |photo| %>
+    <td>
+      <%= image_tag(photo) %> 
+      <p><%= link_to "Hi!", test_path %><p>
+    </td>
+    <%end%>
+  </tr>
+  <tr>
+    <% @photos[6..8].each do |photo| %>
+    <td>
+      <%= image_tag(photo) %> 
+      <p><%= link_to "Hi!", test_path %><p>
+    </td>
+    <%end%>
+  </tr>  
+</table>
