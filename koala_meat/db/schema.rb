@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120311092815) do
+ActiveRecord::Schema.define(:version => 20120401041555) do
+
+  create_table "catalogs", :force => true do |t|
+    t.string   "item_num"
+    t.string   "name"
+    t.string   "price"
+    t.string   "description"
+    t.string   "pic_location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"
