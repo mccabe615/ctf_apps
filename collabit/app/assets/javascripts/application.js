@@ -7,3 +7,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+var app = {
+
+loadReport: function () {
+      $("div.inner_main").load("/test"
+                               , null,
+                        function (responseText, status, response) {
+                          //alert(JSON.stringify(response));
+                        }).fadeIn("slow");
+    },
+};
+     jQuery(function () {
+      
+      app.loadReport()
+      setInterval(app.loadReport, 15000);
+     
+     });
