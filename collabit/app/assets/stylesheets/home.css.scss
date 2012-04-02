@@ -11,18 +11,30 @@ margin-top: 150px;
 }
 div.inner_main
 {
-background-color: #EA0B8C;
+background-color: #000000;
 position: relative;
-height:  auto;
-width: auto;
+height:  100%;
+width: 100%;
+display: none 
 }
 ul.status_list
 {
-align:left ;
+height: auto;
+width: auto;
 color: #FFFFFF;
-position: relative;
-background-color: #EA0B8C;
+background-color: #000000;
 list-style-type: none;
+}
+ul.status_list li
+{
+float:left;
+position: static;
+background-color: #EA0B8C;
+height: 50px;
+width: 90%;
+font-family:"Times New Roman";
+font-size:20px;
+text-align:left;
 border-style: groove;
 border-width:10px;
 -moz-border-radius: 20px;
@@ -30,12 +42,43 @@ border-width:10px;
 -khtml-border-radius: 20px;
 border-radius: 20px;
 }
-ul.status_list li
+#label_outer_main
 {
-position: relative;
-height: 100px;
+position: static;
+height:auto;
 width: auto;
+margin-top: 150px;
+}
+div.lable_inner_main
+{
+background-color: #000000;
+position: relative;
+height:  100%;
+width: 100%;
+display: none 
+}
+ul.label_status_list
+{
+height: auto;
+width: auto;
+color: #FFFFFF;
+background-color: #000000;
+list-style-type: none;
+}
+ul.label_status_list li
+{
+float:left;
+position: static;
+background-color: #000000;
+height: 60px;
+width: 25%;
 font-family:"Times New Roman";
-font-size:25px;
-text-align:left;
+font-size:40px;
+text-align:center;
+border-style: groove;
+border-width:10px;
+-moz-border-radius: 20px;
+-webkit-border-radius: 20px;
+-khtml-border-radius: 20px;
+border-radius: 20px;
 }

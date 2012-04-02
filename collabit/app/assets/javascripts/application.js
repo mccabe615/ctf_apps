@@ -15,7 +15,7 @@ loadReport: function () {
                                , null,
                         function (responseText, status, response) {
                           //alert(JSON.stringify(response));
-                        }).fadeIn("slow");
+                        }).fadeIn(2000);
     },
 };
      jQuery(function () {

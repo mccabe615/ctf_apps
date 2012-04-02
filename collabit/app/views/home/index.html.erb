@@ -1,5 +1,3 @@
-<img src='assets/main_bg.png' id=background />
-
 <div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
   <% if current_user %>
     Logged in as <%= current_user.email %>
@@ -7,9 +5,14 @@
   <% end %>
 </div>
 
-
-
-<div id="outer_main" align="center" >
-  <div class="inner_main" align="center" >
+<div id="label_outer_main" align="left">
+  <div class="label_inner_main" align="left">
+     <ul class="label_status_list">
+        <li> Latest Updates </li>
+      </ul>
+  </div>
+</div>
+<div id="outer_main" align="left">
+  <div class="inner_main" align="left">
   </div>
 </div>

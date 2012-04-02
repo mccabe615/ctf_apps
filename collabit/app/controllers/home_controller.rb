@@ -5,12 +5,15 @@ class HomeController < ApplicationController
 
   def test
     render :text => %q{
+     
       <ul class="status_list">
         <li>
           This is a test !
         </li>
         <li> This is a test </li>
         <li> This is a test </li>
+        
+        
       </ul>
     }
       
