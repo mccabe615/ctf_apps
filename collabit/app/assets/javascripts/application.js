@@ -11,7 +11,7 @@
 var app = {
 
 loadReport: function () {
-      $("div.inner_main").load("/test"
+      $("div.inner_main").load("/latest"
                                , null,
                         function (responseText, status, response) {
                           //alert(JSON.stringify(response));

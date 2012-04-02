@@ -5,7 +5,7 @@ Collabit::Application.routes.draw do
   get "login" => "sessions#new", :as => "log_in"
   get "register" => "users#new", :as => "register"
   get "home" => "home#index", :as => "home"
-  get "test" => "home#test", :as => "test"
+  get "latest" => "status#latest_updates",:as => "latest"
   
   resources :users
   resources :sessions
