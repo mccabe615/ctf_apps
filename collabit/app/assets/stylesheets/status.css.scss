@@ -1,3 +1,22 @@
 // Place all the styles related to the status controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#status_outer
+{
+position: static;
+height:auto;
+width: auto;
+margin-top: 150px;
+}
+input{
+margin-bottom: 10px;
+color: #000000;
+font-family:"Times New Roman";
+font-size:20px;
+}
+div.editor label{
+color: #FFFFFF;
+font-family:"Times New Roman";
+font-size:25px;
+}

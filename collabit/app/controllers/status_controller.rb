@@ -1,6 +1,15 @@
 class StatusController < ApplicationController
   before_filter :authenticated
   
+  
+  def create
+    @status = Status.new
+    render :layout => "create"
+  end
+  
+  def doit
+  end
+  
   def latest_updates
     str = ''
     status = Status.all
