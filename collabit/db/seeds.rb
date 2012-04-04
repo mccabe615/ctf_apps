@@ -8,10 +8,10 @@
 
 
 users = [
-  {:email => "ken@ci.com", :password => "ken", :user_id => 1, :roles => []},
-  {:email => "larry@ci.com", :password => "l4rry", :user_id => 2, :roles => []},
-  {:email => "moe@ci.com", :password => "m0e", :user_id => 3, :roles => []},
-  {:email => "curly@ci.com", :password => "curly", :user_id => 4, :roles => []},
+  {:email => "ken@ci.com", :password => "ken", :user_id => 1, :roles => 0},
+  {:email => "larry@ci.com", :password => "l4rry", :user_id => 2, :roles => 1},
+  {:email => "moe@ci.com", :password => "m0e", :user_id => 3, :roles => 2},
+  {:email => "curly@ci.com", :password => "curly", :user_id => 4, :roles => 3},
 ]
 
 users.each do |u|

@@ -7,7 +7,8 @@ Collabit::Application.routes.draw do
   get "home" => "home#index", :as => "home"
   get "latest" => "status#latest_updates",:as => "latest"
   get "create" => "status#create", :as => "create"
-  post "statuses" => "status#doit", :as => "statuses"
+  post "statuses" => "status#view_before_save", :as => "statuses"
+  post "save_status" => "status#save_status", :as => "save_status"
   
   resources :users
   resources :sessions

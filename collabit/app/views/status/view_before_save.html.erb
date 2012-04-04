@@ -1,0 +1,42 @@
+<table align="center" border="0" cellpadding="5" cellspacing="5">
+  <tr>
+  <th>Title</th>
+  <th><%= @details[:title]%></th>
+  </tr>
+  <tr>
+  <th>Week Ending</th>
+  <th><%= @details[:we]%></th>
+  </tr>
+  </tr>
+  <tr>
+  <th>Status</th>
+  <th><%= raw(@details[:status])%></th>
+  </tr>
+</table>
+
+<div id="confirm_or_deny" >
+  <%= button_to "Confirm", {:action => "save_status"}, {:class => "button_home"} %>
+</div>  
+
+<style type="text/css" media="screen">
+
+table{
+text-align:left;
+width: 400px;
+height: auto;
+margin-top: 200px;
+position:static;
+z-index:1;
+color: #FFFFFF;
+border-top: 1px solid #F660AB;
+border-top-width: 1px;
+border-top-style: solid;
+border-top-color: #F660AB;
+border-bottom: 1px solid #EA0B8C;
+border-bottom-width: 1px;
+border-bottom-style: solid;
+border-bottom-color: #EA0B8C;
+background: -moz-linear-gradient(top, #F660AB, #EA0B8C);
+background: -webkit-gradient(linear, left top, left bottom, from(#F660AB), to(#EA0B8C));
+background: -moz-linear-gradient(top, #F660AB, #EA0B8C);
+}

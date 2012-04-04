@@ -4,6 +4,9 @@
 <%=stylesheet_link_tag("status")%>
 
 <h1>Create a status report</h1>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_notice" %>
+<% end %>
  <div id="outer_status" >
  <div class="editor" align="center" >
  <%= form_for(@status) do |f| %>
@@ -13,7 +16,7 @@
  </p>
  <p>
   <%=f.label(:week_ending, "Week Ending") %><br/>
-  <%= f.text_field :week_ending %><br />
+  <%= f.text_field :week_ending %><br/>
  </p>
  <%=f.text_area(:status, :style => "width:1000px;height:300px")%>
  <%= raw(puny_mce 'status_status', 'status_status', :profile => :all) %>

@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_url and reset_session if not signed_in?
   end
   
+  def h(str)
+    @str = ERB::Util.html_escape(str)
+  end
+  
   private
 
   def current_user

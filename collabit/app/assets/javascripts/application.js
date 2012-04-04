@@ -19,7 +19,7 @@ loadReport: function () {
     },
 };
      jQuery(function () {
-      
+        
       app.loadReport()
       setInterval(app.loadReport, 15000);
      
