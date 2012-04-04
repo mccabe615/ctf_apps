@@ -1,3 +1,9 @@
+<div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
+  <%= link_to "Back", home_path, {:class => "a"} %>
+  <%= link_to "Sign Out", logout_path, {:class => "a"} %>
+</div>
+
+<h1> Review </h1>
 <table align="center" border="0" cellpadding="5" cellspacing="5">
   <tr>
   <th>Title</th>
@@ -14,9 +20,13 @@
   </tr>
 </table>
 
-<div id="confirm_or_deny" >
-  <%= button_to "Confirm", {:action => "save_status"}, {:class => "button_home"} %>
-</div>  
+<div id="confirm_or_deny" align="center" >
+  
+
+  <%= button_to("Confirm", {:action => "save_status", :week_ending => @details[:we], :status => @details[:status], :title => @details[:title]}, {:class => "button_confirm"}) %>
+  <%= button_to "Deny", {:action => "create"}, {:method => "get", :class => "button_deny"} %>
+</div>
+
 
 <style type="text/css" media="screen">
 
@@ -24,7 +34,7 @@ table{
 text-align:left;
 width: 400px;
 height: auto;
-margin-top: 200px;
+margin-top: 100px;
 position:static;
 z-index:1;
 color: #FFFFFF;
@@ -40,3 +50,67 @@ background: -moz-linear-gradient(top, #F660AB, #EA0B8C);
 background: -webkit-gradient(linear, left top, left bottom, from(#F660AB), to(#EA0B8C));
 background: -moz-linear-gradient(top, #F660AB, #EA0B8C);
 }
+#confirm_or_deny
+{
+margin: 0 auto;  
+}
+.button_confirm
+{
+margin: 0;
+margin-top: 20px;
+font-family:"Times New Roman";
+font-size:40px;
+height:  100px;
+width: 200px;
+border: none;
+border-right-style: none;
+border-left-style: none;
+border-width: initial;
+border-color: initial;
+color: white;
+cursor: pointer;
+text-transform: lowercase;
+border-top: 1px solid #FFF380;
+border-top-width: 1px;
+border-top-style: solid;
+border-top-color: #FFF380;
+border-bottom: 1px solid #e9ba26;
+border-bottom-width: 1px;
+border-bottom-style: solid;
+border-bottom-color: #e9ba26;
+background: -moz-linear-gradient(top, #FFF380, #e9ba26);
+background: -webkit-gradient(linear, left top, left bottom, from(#FFF380), to(#e9ba26));
+background: -moz-linear-gradient(top, #FFF380, #e9ba26);
+}
+.button_deny
+{
+float: auto;
+margin: 0;
+margin-top: 20px;
+font-family:"Times New Roman";
+font-size:40px;
+height:  100px;
+width: 200px;
+border: none;
+border-right-style: none;
+border-left-style: none;
+border-width: initial;
+border-color: initial;
+color: white;
+cursor: pointer;
+text-transform: lowercase;
+border-top: 1px solid #FFF380;
+border-top-width: 1px;
+border-top-style: solid;
+border-top-color: #FFF380;
+border-bottom: 1px solid #e9ba26;
+border-bottom-width: 1px;
+border-bottom-style: solid;
+border-bottom-color: #e9ba26;
+background: -moz-linear-gradient(top, #FFF380, #e9ba26);
+background: -webkit-gradient(linear, left top, left bottom, from(#FFF380), to(#e9ba26));
+background: -moz-linear-gradient(top, #FFF380, #e9ba26);
+}
+}
+
+

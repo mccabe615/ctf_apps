@@ -17,13 +17,18 @@ class StatusController < ApplicationController
   end
   
   def save_status
-    status = Status.new
-    status.title = params[:status][:title]
-    status.week_ending  = params[:status][:week_ending]
-    status.status = params[:status][:status]
-    status.team_number = current_user.roles.to_i
-    status.last_edited_by = current_user.user_id
-    status.save!
+    if !(params[:week_ending].blank?) && !(params[:title].blank?) && !(params[:status].blank? || params[:status][:status] == "<br/>")    
+      status = Status.new
+      status.title = params[:title]
+      status.week_ending  = params[:week_ending]
+      status.status = params[:status]
+      status.team_number = current_user.roles.to_i
+      status.last_edited_by = current_user.user_id
+      status.save!
+    else
+      redirect_to create_path
+      flash[:notice] = "You did something out of order"
+    end
   end
   
   def latest_updates

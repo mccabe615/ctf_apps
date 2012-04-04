@@ -3,6 +3,11 @@
 <%=stylesheet_link_tag("application")%>
 <%=stylesheet_link_tag("status")%>
 
+<div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
+  <%= link_to "Back", home_path, {:class => "a"} %>
+  <%= link_to "Sign Out", logout_path, {:class => "a"} %>
+</div>
+
 <h1>Create a status report</h1>
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_notice" %>
