@@ -58,13 +58,21 @@ class StatusController < ApplicationController
   end
   
   def view_status
-   @ss = single_status(params[:id]) if params[:id]   
+   @ss = single_status(params[:id]) if params[:id]
+   if !@ss
+     redirect_to home_path
+   end
   end
   
   def view_statuses
     if !statuses
       render :text => "boo"
     end
+  end
+  
+  def edit_status
+    @status = Status.new
+    render :layout => "create"
   end
 
 end

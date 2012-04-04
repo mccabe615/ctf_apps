@@ -11,6 +11,7 @@ Collabit::Application.routes.draw do
   post "save_status" => "status#save_status", :as => "save_status"
   get "view_statuses" => "status#view_statuses", :as => "view_statuses"
   post "view_status" => "status#view_status", :as => "view_status"
+  post "edit_status" => "status#edit_status", :as => "edit_status"
   
   resources :users
   resources :sessions

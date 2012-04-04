@@ -38,9 +38,13 @@ module Collabit
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-
+    
     # Enable the asset pipeline
     config.assets.enabled = true
+    
+    # Making sure we precompile the right stuff
+    config.assets.precompile << "punymce/*.js"
+    config.assets.precompile << "stylesheets/*.css.scss"
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
