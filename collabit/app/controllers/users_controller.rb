@@ -26,5 +26,17 @@ class UsersController < ApplicationController
     <p>a = (0..4), a.each_with_idx do {|i, ix| "w00t" if ix == a.first}</p>
     }
   end
+  
+  def asdc
+    render :text => %{Getting warmer...}
+  end
+  
+  def asdc12
+    render :text => %q{Scorching.....}
+  end
+  
+  def asdc12_ctf
+    render :text => %q{YOU ARE ON FIRE!!!....and here is your prize - key: something}
+  end
 
 end

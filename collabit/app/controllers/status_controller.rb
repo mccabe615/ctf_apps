@@ -18,13 +18,18 @@ class StatusController < ApplicationController
   
   def save_status
     if !(params[:week_ending].blank?) && !(params[:title].blank?) && !(params[:status].blank? || params[:status][:status] == "<br/>")    
-      status = Status.new
-      status.title = params[:title]
-      status.week_ending  = params[:week_ending]
-      status.status = params[:status]
-      status.team_number = current_user.roles.to_i
-      status.last_edited_by = current_user.user_id
-      status.save!
+      status = params[:id].present? ? Status.find_by_id(params[:id]) : Status.new
+      if status
+        status.title = params[:title]
+        status.week_ending  = params[:week_ending]
+        status.status = params[:status]
+        status.team_number = current_user.roles.to_i
+        status.last_edited_by = current_user.user_id
+        status.save!
+        if params[:id]
+          flash[:notice] = "Awesome, you found a flaw in logic - key: something"
+        end
+      end 
     else
       redirect_to create_path
       flash[:notice] = "You did something out of order"
@@ -72,7 +77,7 @@ class StatusController < ApplicationController
   
   def edit_status
     @single_s = single_status(params[:id]) if params[:id]
-    if @single_s.present?
+    if @single_s.present? && !(current_user.roles.to_i == @single_s.team_number)
       render :layout => "create"
     else
       redirect_to home_url
