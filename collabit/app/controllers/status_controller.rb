@@ -27,7 +27,7 @@ class StatusController < ApplicationController
         status.last_edited_by = current_user.user_id
         status.save!
         if params[:id]
-          flash[:notice] = "Awesome, you found a flaw in logic - key: something"
+          flash[:notice] = "Awesome, you found a flaw in logic - key: th1sk3y1spr3333333tyr1ght348482828"
         end
       end 
     else

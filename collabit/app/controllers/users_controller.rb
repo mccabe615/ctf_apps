@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
   
   def asdc12_ctf
-    render :text => %q{YOU ARE ON FIRE!!!....and here is your prize - key: something}
+    render :text => %q{YOU ARE ON FIRE!!!....and here is your prize - key: thepr1nc30fburgert0wnblahlhl}
   end
 
 end
