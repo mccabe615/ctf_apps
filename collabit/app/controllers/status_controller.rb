@@ -1,6 +1,6 @@
 class StatusController < ApplicationController
   before_filter :authenticated
-  
+  helper_method :statuses
   
   def create
     @status = Status.new
@@ -49,11 +49,20 @@ class StatusController < ApplicationController
     return writer.email
   end
   
+  def statuses
+    @stats = Status.all.sort_by{ |update| update.updated_at}.reverse
+  end
+  
+  def single_status(id)
+   return Status.find_by_id(id) if id
+  end
+  
+  def view_status
+   @ss = single_status(params[:id]) if params[:id]   
+  end
+  
   def view_statuses
-    @statuses = Status.all#find_by_team_number(current_user.roles.to_i) if current_user
-    if @statuses
-      
-    else
+    if !statuses
       render :text => "boo"
     end
   end
