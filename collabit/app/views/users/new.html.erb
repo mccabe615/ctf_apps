@@ -1,2 +1,47 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Sign Up</h1>
+<div id="signup">
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p <%= f.submit 'submit', {:class => "button_home"} %></p>
+<% end %>
+</div>
+
+<style type="text/css" media="screen">
+
+#signup
+{
+color: #FFFFFF;
+text-align:center;
+position:relative;
+z-index:1;
+font-family: "Times New Roman";
+font-size: 25px;
+}
+#error_messages
+{
+color: #FFFFFF;
+text-align:center;
+position:relative;
+z-index:1; 
+}
