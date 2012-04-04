@@ -48,5 +48,14 @@ class StatusController < ApplicationController
     writer = User.find_by_user_id(num)
     return writer.email
   end
+  
+  def view_statuses
+    @statuses = Status.all#find_by_team_number(current_user.roles.to_i) if current_user
+    if @statuses
+      
+    else
+      render :text => "boo"
+    end
+  end
 
 end

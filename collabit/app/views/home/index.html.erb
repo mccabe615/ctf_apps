@@ -17,6 +17,6 @@
   </div>
   <div class="inner_main_right" align="left">
     <%= button_to "Create Status Report", {:controller => "status", :action => "create"}, {:method => "get", :class => "button_home"}%>
-    <%= button_to "View Status Reports", {:action => "index"}, {:method => "get", :class => "button_home"}%>
+    <%= button_to "View Status Reports", {:controller => "status", :action => "view_statuses"}, {:method => "get", :class => "button_home"}%>
   </div>
 </div>
