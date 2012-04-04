@@ -71,8 +71,12 @@ class StatusController < ApplicationController
   end
   
   def edit_status
-    @status = Status.new
-    render :layout => "create"
+    @single_s = single_status(params[:id]) if params[:id]
+    if @single_s.present?
+      render :layout => "create"
+    else
+      redirect_to home_url
+    end 
   end
 
 end
