@@ -77,9 +77,10 @@ class StatusController < ApplicationController
   
   def edit_status
     @single_s = single_status(params[:id]) if params[:id]
-    if @single_s.present? && !(current_user.roles.to_i == @single_s.team_number)
+    if @single_s.present? && (current_user.roles.to_i == @single_s.team_number)
       render :layout => "create"
     else
+      flash[:notice] = "You do not have permissions to edit this team's status"
       redirect_to home_url
     end 
   end
