@@ -16,11 +16,13 @@ loadReport: function () {
                         function (responseText, status, response) {
                           //alert(JSON.stringify(response));
                         }).fadeIn(2000);
-    },
+    },    
 };
+     
+     
+     
      jQuery(function () {
-        
-      app.loadReport()
+      app.loadReport();
       setInterval(app.loadReport, 15000);
      
      });

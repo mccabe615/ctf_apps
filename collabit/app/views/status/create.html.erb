@@ -1,7 +1,9 @@
 <% content_for :head do %>
+<%= javascript_include_tag("https://ajax.googleapis.com/ajax/libs/prototype/1.7.0.0/prototype.js") %>
 <%= include_puny_mce  %>
 <%=stylesheet_link_tag("application")%>
 <%=stylesheet_link_tag("status")%>
+<%= calendar_date_select_includes :style => "plain"%>
 
 <h1>Create a status report</h1>
 <div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
@@ -20,7 +22,7 @@
  </p>
  <p>
   <%=f.label(:week_ending, "Week Ending") %><br/>
-  <%= f.text_field :week_ending %><br/>
+  <%= f.calendar_date_select "calendar", :embed => true, :size => 28%><br/>
  </p>
  <%=f.text_area(:status, :style => "width:1000px;height:300px")%>
  <%= raw(puny_mce 'status_status', 'status_status', :profile => :all) %>

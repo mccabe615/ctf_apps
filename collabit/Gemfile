@@ -17,6 +17,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# Additional gem for selecting a date
+gem 'calendar_date_select', :git => 'http://github.com/paneq/calendar_date_select.git', :branch => 'rails3test' 
+
 gem 'jquery-rails'
 gem 'formtastic', :require => "formtastic"
 

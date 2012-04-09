@@ -45,6 +45,7 @@ module Collabit
     # Making sure we precompile the right stuff
     config.assets.precompile << "punymce/*.js"
     config.assets.precompile << "stylesheets/*.css.scss"
+    config.assets.precompile << "calendar_date_select/*.*"
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

@@ -5,11 +5,11 @@
   <% end %>
 </div>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_notice" %>
-<% end %>
-
 <div id="label_outer_main" align="left">
+  <% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_notice" %>
+  <% end %>
+
   <div class="label_inner_main" align="left">
      <ul class="label_status_list">
         <li> Latest Updates </li>
