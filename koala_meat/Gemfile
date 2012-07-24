@@ -25,6 +25,9 @@ gem "bcrypt-ruby", :require => "bcrypt"
 # Use unicorn as the web server
 gem 'unicorn'
 
+# Twitter-Bootstrap
+gem 'twitter-bootstrap-rails'
+
 # Pictures
 gem 'rmagick'
 
