@@ -1,16 +1,18 @@
 <h1> KoalaMeat!</h1>
+ <div align="center">
+	<ul class="nav nav-pills" style="display: inline-block; margin-top: 25px">
+	  <li><%= button_to "Home", {:action => "index"}, {:method => "get"}%></li>
+	  <li class="active">
+	    <%= button_to "Catalog", {:action => "catalog"}, {:method => "get"}%>
+	  </li>
+	  <li><form method="post" action="mailto:help@koala_meat">
+	        <%= button_to "Contact Us", nil, {:method => "get"}%>
+	    </form>
+	  </li>
+	  <li><%= button_to "About Us", {:action => "about_us"}, {:method => "get"}%></li>
+	</ul>
 
-
-  <td>  <%= button_to "Home", {:action => "index"}, {:method => "get"}%></td>
-   <td> <%= button_to "Catalog", {:action => "catalog"}, {:method => "get"}%></td>
-   <td> <form method="post" action="mailto:help@koala_meat">
-        <%= button_to "Contact Us", nil, {:method => "get"}%>
-    </form>
-   </td>
-    <td><%= button_to "About Us", {:action => "about_us"}, {:method => "get"}%></td>
-
-
-<table id="table" align="center" border="0" cellpadding="5" cellspacing="5" width="50%">
+<table id="table">
   <tr>
     <% @photos[0..2].each_with_index do |photo, idx| %>
      <%idx = idx + 1 %>
@@ -39,3 +41,4 @@
     <%end%>
   </tr>  
 </table>
+ </div>
