@@ -1,19 +1,16 @@
-<h1> Database Maintenance </h1>
-<img src="/assets/bamboo.jpg" alt="background image" id="bg" />
-<div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
-  <% if current_user %>
-    Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", log_out_path, :class => "a" %>
-  <% end %>
-</div>
-  
-<%= form_tag("/clean_up", :method => "post") do %>
-  <%=  hidden_field "file", 'cleanup.rb' %>
-  <%=  submit_tag "Cleanup Function", {:class => "buttons"} %>
-<% end %>
-<p>
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_notice" %>
-<% end %>
-</p>
+<div align="center">
 
+<h1> Database Maintenance </h1>
+ 
+<ul style="display: inline-block; margin-top: 25px" class="nav nav-tabs">
+	<li><%= link_to "Administration", admin_path %></li>
+	<li class="active"><%= link_to "DB Maint.", maint_path %></li>
+	<li><%= link_to  "User Mgmt.", mgmt_path %></li>
+</ul>
+
+<%= form_tag(clean_up_path, :method => "post") do %>
+  <%=  hidden_field "file", 'cleanup.rb' %>
+  <%=  submit_tag "Cleanup Function", {:class => "btn btn-success"} %>
+<% end %>
+
+</div>

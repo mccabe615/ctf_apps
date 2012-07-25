@@ -1,12 +1,38 @@
+<div align="center">
+
 <h1> User Management </h1>
-<img src="/assets/bamboo.jpg" alt="background image" id="bg" />
-<div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
-  <% if current_user %>
-    Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", log_out_path, :class => "a" %>
-  <% end %>
-</div>
-<table align="center" border="1" cellpadding="5" cellspacing="5" width="75%">
+
+<% flash.each do |name, msg| %>
+		<% if name == :error %> 
+			<div class="alert alert-error" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :success %>
+			<div class="alert alert-success" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :info %>
+			<div class="alert alert-info" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+					<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% end %>
+
+
+	<% end %>
+
+
+<ul style="display: inline-block; margin-top: 25px" class="nav nav-tabs">
+	<li><%= link_to "Administration", admin_path %></li>
+	<li><%= link_to "DB Maint.", maint_path %></li>
+	<li class="active"><%= link_to  "User Mgmt.", mgmt_path %></li>
+</ul>
+
+
+<div class="container">
+<table class="table table-bordered" align="center" style="margin-top: 25px">
   <tr>
   <th>Username</th>
   <th>Role: Admin</th>
@@ -17,52 +43,5 @@
   </tr>
   <% end %>
   </table>
-
-
-<style type="text/css" media="screen">
-
-body
-{
-background-color:#E8E8E8;
-}
-h1
-{
-color:#FFFFFF ;
-text-align:center;
-font-family:"Times New Roman";
-font-size:100px;
-position:relative;
-z-index:1;
-}
-#user_nav
-{
-color:#FFFFFF ;
-position:relative;
-z-index:1;
-}
-img#bg
-{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-}
-table{
-  position:relative;
-  z-index:1;
-  color: #FFFFFF;
-  background-color: #2E3B0B;
-}
-a {
-  color: #FFFFFF;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: #FFFFFF;
-  text-decoration: underline;
-}
-
-a:visited {
-  color: #FFFFFF;
+</div>
+</div>

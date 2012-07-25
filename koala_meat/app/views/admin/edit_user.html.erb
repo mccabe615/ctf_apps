@@ -1,13 +1,7 @@
+<div align="center">
 <h1> Edit User </h1>
-<img src="/assets/bamboo.jpg" alt="background image" id="bg" />
-<div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
-  <% if current_user %>
-    Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", log_out_path, :class => "a" %>
-  <% end %>
-</div>
 
-<div id="edit" >
+<div >
   <% if @user %>
   <%=form_for(@user) do |f|%>
     <p>
@@ -36,72 +30,10 @@
         </p>
       </br>
     </p>
-      <%= button_to "Update", {:controller => "users", :action => "update" }, {:class => "buttons" }%>
+      <%= button_to "Update", update_path, {:class => "btn btn-success"}%>
     <% end %>
     <% else %>
       <script> alert('CAN\'T FAULT YOU FOR TRYING!')</script>
   <% end %>
 </div>
-
-<style type="text/css" media="screen">
-
-body
-{
-background-color:#E8E8E8;
-}
-h1
-{
-color:#FFFFFF ;
-text-align:center;
-font-family:"Times New Roman";
-font-size:100px;
-position:relative;
-z-index:1;
-}
-#user_nav
-{
-color:#FFFFFF ;
-position:relative;
-z-index:1;
-}
-img#bg
-{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-}
-#edit
-{
-color: #FFFFFF;
-text-align:center;
-position:relative;
-z-index:1;
-}
-.textbox
-{
-text-align:left;
-position:relative;
-z-index:1;  
-}
-.buttons
-{
-color:#336666;
-width: 300px;
-font-size:25px;
-position:relative;
-z-index:1;
-}
-a {
-  color: #FFFFFF;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: #FFFFFF;
-  text-decoration: underline;
-}
-
-a:visited {
-  color: #FFFFFF;
+<div align="center">

@@ -17,6 +17,11 @@ class AdminController < ApplicationController
   end
   
   def portal
+   if current_user && is_admin? && current_user.email != "superadmin@koala_meat.com"
+        flash[:info] = %q{Congrats, your an admin! 
+                            Your key is: 9293lasdfkj=23o5929032-akjalsdfu=-a439q91#@#%
+                          }
+    end
     check("portal")
   end
   
@@ -31,8 +36,9 @@ class AdminController < ApplicationController
   def edit_user
    @user = User.find_by_email(params[:user_id]) if params[:user_id]
    @user_id = params[:user_id] if params[:user_id]
-   if not current_user && current_user.admin?
+   if not current_user && is_admin?
      destroy
+     redirect_to root_path
    end
   end
   
@@ -55,7 +61,7 @@ class AdminController < ApplicationController
   private
   
   def check(render_url)
-    if current_user && current_user.admin?
+    if current_user && is_admin?
       render "#{render_url}"
     else
       destroy
@@ -63,7 +69,7 @@ class AdminController < ApplicationController
   end
   
   def super_check(render_url)
-    if current_user && current_user.admin? && current_user.email == "superadmin@koala_meat.com"
+    if current_user && is_admin? && current_user.email == "superadmin@koala_meat.com"
       render "#{render_url}"
     else
       redirect_to admin_url

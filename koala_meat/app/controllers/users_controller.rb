@@ -16,17 +16,15 @@ class UsersController < ApplicationController
   end
   
   def update
-     if current_user && current_user.admin?
-      @user = User.find(params[:id])
-         if @user.email != "superadmin@koala_meat.com" && @user.update_attributes(params[:user])
-            flash[:success] = "Profile updated"
-            redirect_to mgmt_url
-         else
-            render :text => '<script>alert("That would have ben sooooo cool if it worked")</script>'
-         end
-     else
-        destroy
+     if current_user && is_admin?
+        @user = User.find(params[:id])
+           if @user.email != "superadmin@koala_meat.com" && @user.update_attributes(params[:user])
+              flash[:success] = "Profile updated"
+            else 
+              flash[:error] = "Nice try :-)"
+           end
      end 
+     redirect_to  mgmt_path
   end
   
   def self.role_bool

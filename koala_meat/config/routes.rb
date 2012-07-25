@@ -12,7 +12,6 @@ KoalaMeat::Application.routes.draw do
   post "clean_up" => "admin#clean_up", :as => "clean_up"
   get "show_catalog_item", :to => "home#show_catalog_item", :as => "show_catalog_item"
   
-  match '/welcome', :to => "home#welcome", :as => "welcome"
   match '/maint', :to => "admin#maint", :as => "maint"
   match '/mgmt', :to => "admin#mgmt", :as => "mgmt"
   match '/mgmt/edit_user', :to => "admin#edit_user", :as => "edit_user"

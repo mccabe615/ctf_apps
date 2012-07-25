@@ -21,7 +21,10 @@
 					<% if not current_user %>
 						<li><%= link_to "Login", log_in_path, {:style => "color: #FFFFFF"} %></li>
 					<% else %>
-
+						 <!-- begin admin code -->
+						   <% if is_admin? %>
+						   <li><%= link_to "Administration", admin_path, {:style => "color: #FFFFFF"}   %></li>
+						   <% end %>
 						 <!-- end -->
 						<li><%= link_to "Logout", log_out_path, {:style => "color: #FFFFFF"}   %></li>
 					<% end %>
