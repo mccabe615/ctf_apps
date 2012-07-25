@@ -6,10 +6,11 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    if @user.save
-      session[:user_id] = @user.id
+    if @user.save 
+      flash[:success] = "Account Created!"
       redirect_to welcome_path
     else
+      flash[:error] = @user.email == "superadmin@koala_meat.com" ? %q{You've enum'd an important account, your key is: 2093902902939-adsfja;awekif=238dfasdf93-1!#@#} : "User not created"
       render "new"
     end
   end

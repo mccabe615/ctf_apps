@@ -1,83 +1,39 @@
-<h1>Sign Up</h1>
-<img src="/assets/bamboo.jpg" alt="background image" id="bg" />
-<div id="signup">
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-     <% if @user.email == "superadmin@koala_meat.com" %>
-        You've enum'd an important account, your key is: 2093902902939-adsfja;awekif=238dfasdf93-1!#@#
-     <% end %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p class="button"><%= f.submit %></p>
-<% end %>
+<div align="center">
+	<h1>Sign Up</h1>	
+	<% flash.each do |name, msg| %>
+		<% if name == :error %> 
+			<div class="alert alert-error" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :success %>
+			<div class="alert alert-success" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :info %>
+			<div class="alert alert-info" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+  					<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% end %>
+	<% end %>
+	
+	<div id="signup">
+	<%= form_for @user do |f| %>
+	  <p>
+	    <%= f.label :email %><br />
+	    <%= f.text_field :email %>
+	  </p>
+	  <p>
+	    <%= f.label :password %><br />
+	    <%= f.password_field :password %>
+	  </p>
+	  <p>
+	    <%= f.label :password_confirmation %><br />
+	    <%= f.password_field :password_confirmation %>
+	  </p>
+	  <p class="button"><%= f.submit %></p>
+	<% end %>
+	</div>
 </div>
-
-<style type="text/css" media="screen">
-
-body
-{
-background-color:#E8E8E8;
-}
-h1
-{
-color: #FFFFFF;
-text-align:center;
-font-family:"Times New Roman";
-font-size:100px;
-position:relative;
-z-index:1;
-}
-#signup
-{
-color: #FFFFFF;
-text-align:center;
-position:relative;
-z-index:1;
-}
-img#bg {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-}
-#error_messages
-{
-color: #FFFFFF;
-text-align:center;
-position:relative;
-z-index:1; 
-}
-a
-{
-  color: #FFFFFF;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: #FFFFFF;
-  text-decoration: underline;
-}
-
-a:visited {
-  color: #FFFFFF;
-}

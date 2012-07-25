@@ -1,17 +1,19 @@
-<h1> KoalaMeat!</h1>
  <div align="center">
-	<ul class="nav nav-pills" style="display: inline-block; margin-top: 25px">
-	  <li><%= button_to "Home", {:action => "index"}, {:method => "get"}%></li>
-	  <li class="active">
-	    <%= button_to "Catalog", {:action => "catalog"}, {:method => "get"}%>
-	  </li>
-	  <li><form method="post" action="mailto:help@koala_meat">
-	        <%= button_to "Contact Us", nil, {:method => "get"}%>
-	    </form>
-	  </li>
-	  <li><%= button_to "About Us", {:action => "about_us"}, {:method => "get"}%></li>
-	</ul>
 
+<h1> KoalaMeat!</h1>
+
+	<ul class="nav nav-tabs" style="display: inline-block; margin-top: 25px">
+	  <li></li>
+	  <li> <%= link_to "Test", "/test" %></li>
+	  <li class="active">
+	    <%= link_to "Catalog", "#{catalog_path}", {:method => "get"}%>
+	  </li>
+	  <li>
+	      <%= link_to "Contact Us", "mailto:help@koala_meat"%>
+	  </li>
+	  <li><%= link_to "About Us", about_us_path, {:method => "get"}%></li>
+	</ul>
+	
 <table id="table">
   <tr>
     <% @photos[0..2].each_with_index do |photo, idx| %>
