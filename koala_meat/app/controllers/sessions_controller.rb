@@ -14,10 +14,10 @@ class SessionsController < ApplicationController
       redirect_to root_url
     else
       if params[:email] == "superadmin@koala_meat.com"
-         flash.now.alert = %q{You've enum'd an important account, your key is: 2093902902939-adsfja;awekif=238dfasdf93-1!#@#}
+         flash[:info] = %q{You've enum'd an important account, your key is: 2093902902939-adsfja;awekif=238dfasdf93-1!#@#}
          render "new"
       else
-        flash.now.alert = "#{user}"
+        flash[:error] = "#{user}"
         render "new"
       end
     end

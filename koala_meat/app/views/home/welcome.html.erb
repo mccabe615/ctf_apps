@@ -1,30 +1,17 @@
+<div class="container" align="center">
 <h1> KoalaMeat!</h1>
-
-<div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
-  <% if current_user %>
-    <% if current_user && current_user.email == "superadmin@koala_meat.com" %>
-      Congrats, you've hacked the super admin account, here is your key: 1939=2alkjasdfklj40280941=dfsdfad-q23r30254dd
-    <% end %>  
-    Logged in as <%= current_user.email %>.
-
-    <%= link_to "Log out", log_out_path %>
-      <% if current_user.admin? %>
-        <%=link_to "Admin Portal", admin_path, :class => "a"%>
-      <% end %> 
-  <% end %>
-</div>
-<div id="navigator">
-    <%= button_to "Home", {:action => "index"}, {:method => "get", :class => "button_home"}%>
-    <%= button_to "Catalog", {:action => "catalog"}, {:method => "get", :class => "button_home"}%>
-    <form method="post" action="mailto:help@koala_meat.com">
-        <%= button_to "Contact Us", {}, {:method => "get", :class => "button_home"}%>
-    </form>
-    <%= button_to "About Us", {:action => "about_us"}, {:method => "get", :class => "button_home"}%>
-</div>
-<br/>
-<br/>
+<ul class="nav nav-tabs" style="display: inline-block; margin-top: 25px">
+  <li class="active"> <%= link_to "Home", root_path %></li>
+  <li>
+    <%= link_to "Catalog", "#{catalog_path}", {:method => "get"}%>
+  </li>
+  <li>
+      <%= link_to "Contact Us", "mailto:help@koala_meat"%>
+  </li>
+  <li><%= link_to "About Us", about_us_path, {:method => "get"}%></li>
+</ul>
   
-<div id="home_text">
+<div class="hero-unit" style="margin-top: 50px">
   <p>
     Welcome to Koala Meat! We here at Koala Meat are dedicated to the savory flavor of Koala.<br/>
     All of our Koalas are hand-picked, organically grown, and never freeze dried! You can trust us
@@ -32,4 +19,4 @@
     legitimately decent people right? I mean, just ask our Koalas!!!  
   </p>
 </div>
-  
+</div>
