@@ -1,31 +1,22 @@
-<%= stylesheet_link_tag "home" %>
-<h1> KoalaMeat!</h1>
-<img src="/assets/bamboo.jpg" alt="background image" id="bg" />
-<div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
-  <% if current_user %>
-    Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", log_out_path,  :class => "a"%>
-  <% else %>
-    <%= link_to "Sign up", sign_up_path %> or
-    <%= link_to "Log in", log_in_path %>
-  <% end %>
-</div>
+<div class="container" align="center">
+	<h1> KoalaMeat!</h1>
+		<ul class="nav nav-tabs" style="display: inline-block; margin-top: 25px">
+		  <li> <%= link_to "Home", root_path %></li>
+		  <li>
+		    <%= link_to "Catalog", "#{catalog_path}", {:method => "get"}%>
+		  </li>
+		  <li>
+		      <%= link_to "Contact Us", "mailto:help@koala_meat"%>
+		  </li>
+		  <li class="active"><%= link_to "About Us", about_us_path, {:method => "get"}%></li>
+		</ul>
 
-<div id="navigator">
-    <%= button_to "Home", {:action => "index"}, {:method => "get", :class => "button_home"}%>
-    <%= button_to "Catalog", {:action => "catalog"}, {:method => "get", :class => "button_home"}%>
-    <form method="post" action="mailto:help@koala_meat">
-        <%= button_to "Contact Us", {}, {:method => "get", :class => "button_home"}%>
-    </form>
-    <%= button_to "About Us", {:action => "about_us"}, {:method => "get", :class => "button_home"}%>
-</div>
-<br/>
-<br/>
   
-<div id="home_text">
-  <p>
-    Established in 2011, we've been serving Koala Meat to our loyal customers. Although we've been involved in many legal battles
-    we believe it is a matter of freedom to restrict connoisseurs of Koala Meat from enjoying their delicacy.
-    We are a super fun company, super in love with Koala Meat. Have a super day!
-  </p>
+	<div class="hero-unit">
+	  <p>
+	    Established in 2011, we've been serving Koala Meat to our loyal customers. Although we've been involved in many legal battles
+	    we believe it is a matter of freedom to restrict connoisseurs of Koala Meat from enjoying their delicacy.
+	    We are a super fun company, super in love with Koala Meat. Have a super day!
+	  </p>
+	</div>
 </div>

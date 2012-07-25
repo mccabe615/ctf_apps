@@ -1,55 +1,32 @@
-<%= stylesheet_link_tag "home" %>
-<h1> KoalaMeat!</h1>
-<img src="/assets/bamboo.jpg" alt="background image" id="bg" />
-<div id="user_nav" style="position: absolute; top: 0; right: 0; width: auto; text-align:right;">
-  <% if current_user %>
-    Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", log_out_path,  :class => "a"%>
-  <% else %>
-    <%= link_to "Sign up", sign_up_path %> or
-    <%= link_to "Log in", log_in_path %>
-  <% end %>
+<div class="container" align="center">
+	<h1> KoalaMeat!</h1>
+		<ul class="nav nav-tabs" style="display: inline-block; margin-top: 25px">
+		  <li> <%= link_to "Home", root_path %></li>
+		  <li class="active">
+		    <%= link_to "Catalog", "#{catalog_path}", {:method => "get"}%>
+		  </li>
+		  <li>
+		      <%= link_to "Contact Us", "mailto:help@koala_meat"%>
+		  </li>
+		  <li><%= link_to "About Us", about_us_path, {:method => "get"}%></li>
+		</ul>
+		
+		<table class="table" align="center" border="0" cellpadding="5" cellspacing="5" width="75%">
+		  <tr>
+		  <th></th>
+		  <th>Details</th>
+		  </tr>
+		  <tr>
+		  <td><%= image_tag("#{@catalog_item.pic_location}") %></td><td>Koala Meat Item: #000-<%=@catalog_item.item_num%></td>
+		  </tr>
+		  <tr>
+		  <td></td><td><%=@catalog_item.name%></td>
+		  </tr>
+		  <tr>
+		  <td></td><td><%=@catalog_item.price%></td>
+		  </tr>
+		  <tr>
+		  <td></td><td><%=@catalog_item.description%></td>
+		  </tr>
+		</table>
 </div>
-
-
-<div id="navigator">
-  <td>  <%= button_to "Home", {:action => "index"}, {:method => "get", :class => "button_home"}%></td>
-   <td> <%= button_to "Catalog", {:action => "catalog"}, {:method => "get", :class => "button_home"}%></td>
-   <td> <form method="post" action="mailto:help@koala_meat">
-        <%= button_to "Contact Us", {}, {:method => "get", :class => "button_home"}%>
-    </form>
-   </td>
-    <td><%= button_to "About Us", {:action => "about_us"}, {:method => "get", :class => "button_home"}%></td>
-</div>
-
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_notice" %>
-<% end %>
-
-<table align="center" border="0" cellpadding="5" cellspacing="5" width="75%">
-  <tr>
-  <th></th>
-  <th>Details</th>
-  </tr>
-  <tr>
-  <td><%= image_tag("#{@catalog_item.pic_location}") %></td><td>Koala Meat Item: #000-<%=@catalog_item.item_num%></td>
-  </tr>
-  <tr>
-  <td></td><td><%=@catalog_item.name%></td>
-  </tr>
-  <tr>
-  <td></td><td><%=@catalog_item.price%></td>
-  </tr>
-  <tr>
-  <td></td><td><%=@catalog_item.description%></td>
-  </tr>
-</table>
-
-<style type="text/css" media="screen">
-table
-{
-  position:relative;
-  z-index:1;
-  color: #FFFFFF;
-  background-color: #2E3B0B;
-}
