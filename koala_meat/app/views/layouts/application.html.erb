@@ -20,6 +20,7 @@
 				<ul class="nav">
 					<% if not current_user %>
 						<li><%= link_to "Login", log_in_path, {:style => "color: #FFFFFF"} %></li>
+						<li><%= link_to "Signup", sign_up_path, {:style => "color: #FFFFFF"} %></li>
 					<% else %>
 						 <!-- begin admin code -->
 						   <% if is_admin? %>
