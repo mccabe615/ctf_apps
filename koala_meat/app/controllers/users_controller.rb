@@ -40,10 +40,10 @@ class UsersController < ApplicationController
            generate_and_change_password(params[:email])
            flash[:success] = "Email sent!"
         elsif email.nil?
-           flash[:failure] = "Email not found"
+           flash[:error] = "Email not found"
         end 
       elsif (request.post?) && (params[:email].nil? || params[:email].empty?)
-         render :text => "<script>alert('Nice Try Pal')</script>"
+           flash[:error] = "Email not found"
       end 
   end
   

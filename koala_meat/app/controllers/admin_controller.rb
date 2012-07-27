@@ -36,9 +36,9 @@ class AdminController < ApplicationController
   def edit_user
    @user = User.find_by_email(params[:user_id]) if params[:user_id]
    @user_id = params[:user_id] if params[:user_id]
-   if not current_user && is_admin?
-     destroy
-     redirect_to root_path
+   if not (current_user && is_admin?) or !(@user)
+     flash[:error] = "Not authorized"
+     redirect_to mgmt_path
    end
   end
   

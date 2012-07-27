@@ -19,7 +19,7 @@
 		<% end %>
 	<% end %>
 	
-	<div id="signup">
+	<div style="margin-top: 25px">
 	<%= form_for @user do |f| %>
 	  <p>
 	    <%= f.label :email %><br />
@@ -33,7 +33,7 @@
 	    <%= f.label :password_confirmation %><br />
 	    <%= f.password_field :password_confirmation %>
 	  </p>
-	  <p class="button"><%= f.submit %></p>
+	  <p><%= f.submit "Submit", {:class => "btn btn-success"}%></p>
 	<% end %>
 	</div>
 </div>
