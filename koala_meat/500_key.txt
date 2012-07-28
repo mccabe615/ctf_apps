@@ -1,1 +1,3 @@
-Good job, here is your key: 35iuiakljabjwhat1sth9302jka$$#@
+Your not supposed to see this file.
+If you see this file and weren't given a key, tell the person running the CTF there is a bug in the code but that you should still be awarded the 5th level secret token.
+Thank you!

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       flash[:success] = "Account Created!"
       redirect_to root_path
     else
-      flash[:info] = @user.email == "superadmin@koala_meat.com" ? %q{You've enum'd an important account, your key is: 2093902902939-adsfja;awekif=238dfasdf93-1!#@#} : "User not created"
+      flash[:info] = @user.email == "superadmin@koala_meat.com" ? "You\'ve enum\'d an important account, your key is: #{SECRET_TOKEN_2}" : "User not created"
       render "new"
     end
   end
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
         email = User.find_by_email(params[:email])
         if !email.nil?
            generate_and_change_password(params[:email])
-           flash[:success] = "Email sent!"
+           flash[:success] = email.email == "superadmin@koala_meat.com" ? "You\'ve enum\'d an important account, your key is: #{SECRET_TOKEN_2}, Email sent!": "Email sent!"
         elsif email.nil?
            flash[:error] = "Email not found"
         end 
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
   end
   
   def test
-     render :text => "Here is your key: shabadabadoo2343343234556992308423"
+     render :text => "Here is your key: #{SECRET_TOKEN_1}"
   end
   
 

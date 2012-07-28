@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user, :destroy, :is_admin?
+  helper_method :current_user, :destroy, :is_admin?, :is_super_admin?
   
   private
 
@@ -16,6 +16,11 @@ class ApplicationController < ActionController::Base
   def is_admin?
     return false if not current_user
     @is_admin = current_user.admin == true ? true : false
+  end
+  
+  def is_super_admin?
+    return false if not current_user
+    @is_super_admin = current_user.email == "superadmin@koala_meat.com" ? true : false
   end
   
 end

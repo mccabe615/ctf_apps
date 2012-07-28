@@ -1,5 +1,27 @@
 <div class="container" align="center">
 <h1> KoalaMeat!</h1>
+<% flash.each do |name, msg| %>
+		<% if name == :error %> 
+			<div class="alert alert-error" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :success %>
+			<div class="alert alert-success" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :info %>
+			<div class="alert alert-info" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+					<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% end %>
+
+
+	<% end %>
+
+
 <ul class="nav nav-tabs" style="display: inline-block; margin-top: 25px">
   <li class="active"> <%= link_to "Home", root_path %></li>
   <li>

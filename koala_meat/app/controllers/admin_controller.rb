@@ -9,7 +9,7 @@ class AdminController < ApplicationController
       if user.email != "superadmin@koala_meat.com"
         user_h[user.email] = role
       else
-        user_h["xxxxxxxxxx@koala_meat.com"] = "Super Admin (real email should not shown for security reasons)"
+        user_h["xxxxxadmin@koala_meat.com"] = "Super Admin (full email should not shown for security reasons)"
       end 
     end
      sorted = user_h.sort_by{|k,v| v}
@@ -17,9 +17,10 @@ class AdminController < ApplicationController
   end
   
   def portal
+   flash.clear
    if current_user && is_admin? && current_user.email != "superadmin@koala_meat.com"
         flash[:info] = "Congrats, your an admin! 
-                            Your key is: #{SECRET_TOKEN_1}
+                            Your key is: #{SECRET_TOKEN_3}
                           "
     end
     check("portal")
@@ -44,17 +45,27 @@ class AdminController < ApplicationController
   
   def clean_up
     return if current_user && !current_user.admin? && !current_user.email = "superadmin@koala_meat.com"
-    syscmd = "ruby #{Rails.root}/#{params[:file]}"
-    syscmd_exec(syscmd)
+    file = "#{Rails.root}/#{params[:file]}"
+    syscmd = "ruby #{file}"
+    syscmd_exec(syscmd, file)
   end
   
-  def syscmd_exec(syscmd)
-    str = '' 
-    io = ::IO.popen(syscmd, "r")
-    io.each do |line|
-      str << "#{line}"
-    end
-    flash[:notice] = str
+  def syscmd_exec(syscmd, file)
+    flash.clear
+    begin
+     if syscmd.include?("500_key.txt")
+        flash[:info] = "Congrats, you've exploited the system! Here is your key: #{SECRET_TOKEN_5}" 
+     elsif File.exists?(file) and not (File.directory?(file))
+        str = '' 
+        io = ::IO.popen(syscmd, "r")
+        io.each do |line|
+          str << "#{line}"
+        end
+        flash[:success] = str
+      else 
+        flash[:error] = "File not found"
+      end 
+    end 
     redirect_to maint_url   
   end
 

@@ -4,6 +4,7 @@ class HomeController < ApplicationController
   end
   
   def index
+    flash[:info] = "Congratulations! You\'ve broken into the superadmin account. Your key is #{SECRET_TOKEN_4}" if current_user && is_super_admin?
   end
   
   def catalog
