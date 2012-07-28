@@ -47,11 +47,10 @@ class UsersController < ApplicationController
   end
   
   def generate_and_change_password(email)
-     first_word = ['AS', 'DC', 'CTF', '20', '12']
-     second_word = ['OWA', 'SP', 'CONF', 'EREN', 'CE']
-     four_digits = ['1337', '1445', '702', '918', '1600']
+     first_word = ['C', 'T', 'F', 'ARE', 'FUN']
+     second_word = ['APP', 'SEC', 'IS', 'GOOD', 'TIMES']
+     four_digits = ['1337', '1445', '29', '42', '1']
      random_pass = first_word[rand(first_word.length)] + four_digits[rand(four_digits.length)] + second_word[rand(second_word.length)].to_s
-     #puts random_pass
      user = User.find_by_email(email)
      user.encrypt_password(random_pass)
      user.save!
@@ -60,7 +59,7 @@ class UsersController < ApplicationController
   
   def email_password(pass, user)
      #Stubbed, have to do something here to actually email this stuff out
-      UserMailer.forgot_password_email(user).deliver
+      UserMailer.forgot_password_email(pass, user, log_in_url).deliver
   end
   
   def test
