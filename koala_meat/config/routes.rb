@@ -20,5 +20,8 @@ KoalaMeat::Application.routes.draw do
   resources :sessions
   
   root :to => 'home#index'
+  
+  # This catches 404's and just redirects back to home
+  match "*path" => 'error#handle404'
  
 end
