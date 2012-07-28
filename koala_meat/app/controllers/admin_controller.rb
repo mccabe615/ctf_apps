@@ -18,9 +18,9 @@ class AdminController < ApplicationController
   
   def portal
    if current_user && is_admin? && current_user.email != "superadmin@koala_meat.com"
-        flash[:info] = %q{Congrats, your an admin! 
-                            Your key is: 9293lasdfkj=23o5929032-akjalsdfu=-a439q91#@#%
-                          }
+        flash[:info] = "Congrats, your an admin! 
+                            Your key is: #{SECRET_TOKEN_1}
+                          "
     end
     check("portal")
   end
