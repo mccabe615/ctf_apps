@@ -1,2 +1,0 @@
-// Formats date and time as "01 January 2000 17:00"
-Date.prototype.toFormattedString=function(a){return str=Date.padded2(this.getDate())+" "+Date.months[this.getMonth()]+" "+this.getFullYear(),a&&(str+=" "+this.getHours()+":"+this.getPaddedMinutes()),str};
