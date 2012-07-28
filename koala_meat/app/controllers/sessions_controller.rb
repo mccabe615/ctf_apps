@@ -3,6 +3,10 @@ class SessionsController < ApplicationController
   def new
     reset_session
   end
+  
+  def index
+    redirect_to root_path
+  end 
 
   # I've added some logic both in the model and in this
   # ...controller to allow for an email enumeration vuln.

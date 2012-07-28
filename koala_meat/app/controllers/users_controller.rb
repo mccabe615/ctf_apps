@@ -33,7 +33,6 @@ class UsersController < ApplicationController
   
   # putting email enumeration in here as well
   def forgot_password
-     flash.clear
      if request.post? && !params[:email].nil? && !params[:email].empty?
         email = User.find_by_email(params[:email])
         if !email.nil?
@@ -56,11 +55,12 @@ class UsersController < ApplicationController
      user = User.find_by_email(email)
      user.encrypt_password(random_pass)
      user.save!
-     email_password(random_pass)
+     email_password(random_pass, user)
   end
   
-  def email_password(pass)
+  def email_password(pass, user)
      #Stubbed, have to do something here to actually email this stuff out
+      UserMailer.forgot_password_email(user).deliver
   end
   
   def test
