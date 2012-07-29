@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  last_edited_by: 1
+  status: MyString
+  week_ending: MyString
+  title: MyString
+  team_number: 1
+
+two:
+  last_edited_by: 1
+  status: MyString
+  week_ending: MyString
+  title: MyString
+  team_number: 1

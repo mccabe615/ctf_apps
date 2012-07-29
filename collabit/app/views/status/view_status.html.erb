@@ -1,0 +1,79 @@
+<%= include_puny_mce %>
+
+<div class="subnav">
+  <ul class="nav nav-pills">
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Current Reports<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+			<% if pending_review_statuses.empty?%>
+				<li><%= link_to "Awaiting Review <span class=\"badge\">0</span>".html_safe, "#" %><li>
+			<% else%>
+				<li><%= link_to "Awaiting Review <span class=\"badge badge-important\">#{pending_review_statuses.length}</span>".html_safe, awaiting_review_path %><li>
+			<% end %>
+		  <li><a href="#navs">Drafts</a></li>
+      </ul>
+    </li>
+    <li><a href="#labels">Older Reports</a></li>
+  </ul>
+</div>
+
+<div align="center">
+
+	<h1> Combine Status Reports</h1>
+	<% flash.each do |name, msg| %>
+		<% if name == :error %> 
+			<div class="alert alert-error" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :success %>
+			<div class="alert alert-success" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :info %>
+			<div class="alert alert-info" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+					<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% end %>
+	<% end %>
+	
+	<div class="accordion" id="accordion2" style="margin-top: 25px; width: 1000px; height:300px">
+		<div class="accordion-group">
+	    	<div class="accordion-heading">
+	        	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+	            	New Report
+	            </a>
+	        </div>
+	        <div id="collapseOne" class="accordion-body collapse in">
+	        	<div class="accordion-inner">
+	            	<div class="editor" align="center" >
+						<%= form_tag(view_before_save_path,  {:method => "post"}) %>
+						<%= text_area_tag :status, nil, {:style => "width:1000px;height:300px"} %>
+						<p>
+							<%= raw(puny_mce 'status', 'status', :profile => :all) %>
+							<%= submit_tag 'save', {:class => "btn btn-primary", :style => "margin-top: 20px"} %>
+						</p>
+					</div>
+				</div>
+	        </div>
+		</div>
+		<% @status_reports.each_with_index do |report, index| %>
+		<div class="accordion-group">
+	    	<div class="accordion-heading">
+	        	<%= "<a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion2\" href=\"#collapse#{index}\">".html_safe %>
+	            	<%= "#{last_edited_by_email(report.last_edited_by)}".html_safe %>
+	            </a>
+	        </div>
+	        <%= "<div id=\"collapse#{index}\" class=\"accordion-body collapse in\">".html_safe %>
+	        	<div class="accordion-inner">
+	            	<div class="editor" align="center" >
+						<%= form_tag(view_before_save_path,  {:method => "post"}) %>
+						<%= text_area_tag :status, report.status, {:style => "width:1000px;height:300px"} %>
+					</div>
+				</div>
+	        </div>
+		</div>
+		<% end %>
+	</div>

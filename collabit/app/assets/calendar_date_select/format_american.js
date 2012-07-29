@@ -1,0 +1,3 @@
+// American Format: 12/31/2000 5:00 pm
+// Thanks, Wes Hays
+Date.prototype.toFormattedString=function(a){return str=Date.padded2(this.getMonth()+1)+"/"+Date.padded2(this.getDate())+"/"+this.getFullYear(),a&&(hour=this.getHours(),str+=" "+this.getAMPMHour()+":"+this.getPaddedMinutes()+" "+this.getAMPM()),str},Date.parseFormattedString=function(a){var b="(([0-1]?[0-9])/[0-3]?[0-9]/[0-9]{4}) *([0-9]{1,2}(:[0-9]{2})? *(am|pm))?";a=a.strip();var c=a.match(new RegExp(b,"i"));return c==null?Date.parse(a):(mdy=c[1].split("/"),hrs=0,mts=0,c[3]!=null&&c[3].strip()!=""&&(hrs=parseInt(c[3].split("")[0],10),c[5].toLowerCase()=="pm"&&(hrs+=12),mts=c[4].split(":")[1]),new Date(mdy[2],parseInt(mdy[0],10)-1,mdy[1],hrs,mts,0))};

@@ -1,0 +1,3 @@
+// Italian Format: 31/12/2000 23:00
+// Thanks, Bigonazzi!
+Date.prototype.toFormattedString=function(a){return str=this.getDate()+"/"+(this.getMonth()+1)+"/"+this.getFullYear(),a&&(str+=" "+this.getHours()+":"+this.getPaddedMinutes()),str},Date.parseFormattedString=function(a){var b="([0-9]{1,2})/(([0-9]{1,2})/(([0-9]{4})( ([0-9]{1,2}):([0-9]{2})? *)?)?)?",c=a.match(new RegExp(b,"i"));if(c==null)return Date.parse(a);var d=0,e=new Date(c[5],0,1);return c[3]&&e.setMonth(c[3]-1),c[5]&&e.setDate(c[1]),c[7]&&e.setHours(parseInt(c[7],10)),c[8]&&e.setMinutes(c[8]),c[10]&&e.setSeconds(c[10]),e};

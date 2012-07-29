@@ -1,0 +1,30 @@
+<div align="center">
+
+	<h1>Report(s) for review</h1>
+
+<!-- This is where the table that contains status reports awaiting approval starts-->
+    <%= form_tag view_status_path do  %>
+		<table class="table table-striped" style="margin-top: 25px; width: 30%">
+			<thead>
+				<tr>
+			      <th>Week Ending</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+				<% pending_review_statuses.each do |status_report| %>
+			    <tr>
+					<td>
+						<label>
+							<%= check_box_tag "status_report_#{status_report.id}", "#{status_report.id}", false, :class => "checkbox" %>
+							<b> <%= "#{status_report.week_ending}" %> </b>
+						</label>
+						
+					</td>
+			    </tr>
+				<% end %>
+			</tbody>
+		</table>
+		<%= submit_tag "Submit", {:method => "post", :class => "btn btn-primary"}%>		
+<% end %>
+<!-- end of table-->
+</div>

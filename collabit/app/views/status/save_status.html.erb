@@ -1,0 +1,9 @@
+<h1> Successfully Saved! </h1>
+
+<div id="back" align="center">
+  <%= button_to "Back", home_path, {:method => "get", :class => "button_home"} %>
+</div>
+
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_notice" %>
+<% end %>

@@ -1,0 +1,76 @@
+<div align="center">
+	<h1> Edit Profile </h1>
+	<% flash.each do |name, msg| %>
+		<% if name == :error %> 
+			<div class="alert alert-error" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :success %>
+			<div class="alert alert-success" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :info %>
+			<div class="alert alert-info" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+  					<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% end %>
+		
+			
+	<% end %>
+</div> 
+
+
+<div style="width: 10%" class="span4">
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="admin">Home</a></li>
+		<li><a href="create_user">Create Users</a></li>
+		<li class="active"><a href="edit_users">Edit Users</a></li>
+        <li><a href="#">Edit Teams</a></li>
+      </ul>
+</div>
+
+
+<div class="span12" align="center">	
+	<div style="margin-top: 30px">
+		<%= form_tag save_user_path(:id => @user.id) do %>
+		
+			<p>
+				<%= label_tag :email %><br />
+		    	<%= text_field_tag :email, @user.email%>
+			</p>
+			
+			<p>
+				<%= select_tag "team", options_from_collection_for_select(teams, "name", "name") %>
+			</p>
+		
+			<p>
+				<%= select_tag "role", options_from_collection_for_select(roles, "id", "name") %>
+			</p>
+		
+			<p>
+				<%= submit_tag "Delete", {:class => "btn btn-danger", "data-toggle" => "modal", :href => "#myModal"}%>
+				<%= submit_tag "Save", {:class => "btn btn-primary"}%>
+			</p>
+		
+		 <% end %>
+	
+	</div> 
+
+</div>
+
+<div class="modal hide" id="myModal">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">×</button>
+<h3>Delete User</h3>
+</div>
+<div class="modal-body">
+<p>Are you sure you would like to delete this user?</p>
+</div>
+<div class="modal-footer">
+<a href="#" class="btn" data-dismiss="modal">Close</a>
+<%= link_to "Confirm", delete_user_path(:id => @user.id), {:method => "post", :class => "btn btn-primary"} %>
+</div>
+</div>

@@ -1,0 +1,26 @@
+<h1> Review </h1>
+
+<table class= "table" align="center" border="0" cellpadding="5" cellspacing="5">
+  <tr>
+  <th>Title</th>
+  <th><%= @details[:title]%></th>
+  </tr>
+  <tr>
+  <th>Week Ending</th>
+  <th><%= @details[:we]%></th>
+  </tr>
+  </tr>
+  <tr>
+  <th>Status</th>
+  <th><%= raw(@details[:status])%></th>
+  </tr>
+</table>
+
+<div id="confirm_or_deny" align="center" >
+  
+
+  <%= button_to("Confirm", {:action => "save_status", :week_ending => @details[:we], :status => @details[:status], :title => @details[:title]}, {:class => "btn btn-large btn-primary"}) %>
+  <%= button_to "Deny", {:action => "create"}, {:method => "get", :class => "btn btn-large btn-danger"} %>
+</div>
+
+

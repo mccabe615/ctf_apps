@@ -1,0 +1,41 @@
+<div align="center">
+	<% flash.each do |name, msg| %>
+		<% if name == :error %> 
+			<div class="alert alert-error" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :success %>
+			<div class="alert alert-success" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :info %>
+			<div class="alert alert-info" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+					<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% end %>
+
+
+	<% end %>
+</div>
+
+<!--  This is the beginning the hero box-->
+<div class="container">
+	<div class="hero-unit" style="margin-top: 50px">
+		<h2> Hello, welcome to Collabit!</h2>
+		<p> Collabit is an application designed to enhance team collaboration. We would like your experience to be as an enjoyable as possible so please,
+			enjoy these short tutorials and get started collaborating today!
+		</p>
+		<p><a style="margin-top: 20px" class="btn btn-primary btn-large">Getting Started &raquo;</a></p> 
+	</div>
+</div>	
+<!--  This is the end of the hero box-->
+
+<!-- This is the beginning of status updates -->
+
+<div class="row">
+	
+</div>
+<!-- This is the end of status updates-->

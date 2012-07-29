@@ -1,0 +1,39 @@
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Current Reports<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+			<% if pending_review_statuses.empty?%>
+				<li><%= link_to "Awaiting Review <span class=\"badge\">0</span>".html_safe, "#" %><li>
+			<% else%>
+				<li><%= link_to "Awaiting Review <span class=\"badge badge-important\">#{pending_review_statuses.length}</span>".html_safe, awaiting_review_path %><li>
+			<% end %>
+		  <li><a href="#navs">Drafts</a></li>
+        </ul>
+      </li>
+      <li><a href="#labels">Older Reports</a></li>
+    </ul>
+  </div>
+
+<div align="center">
+	<h1> Status Reports </h1>
+	<% flash.each do |name, msg| %>
+		<% if name == :error %> 
+			<div class="alert alert-error" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :success %>
+			<div class="alert alert-success" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :info %>
+			<div class="alert alert-info" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+					<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% end %>
+	<% end %>
+</div>
+	

@@ -1,0 +1,49 @@
+<div align="center">
+	<h1> Edit Profile </h1>
+	<% flash.each do |name, msg| %>
+		<% if name == :error %> 
+			<div class="alert alert-error" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :success %>
+			<div class="alert alert-success" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :info %>
+			<div class="alert alert-info" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+  					<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% end %>
+		
+			
+	<% end %>
+	
+	<div style="margin-top: 30px">
+		<%= form_tag save_profile_path do %>
+		
+			<o>
+				<%= label_tag :email %><br />
+		    	<%= text_field_tag :email, current_user.email%>
+			</p>
+			
+			<p>
+		    	<%= label_tag :password %><br />
+		    	<%= password_field_tag :password %>
+		  	</p>
+		
+			<p>
+		    	<%= label_tag "Confirm Password" %><br />
+		    	<%= password_field_tag :password_confirmation %>
+		  	</p>
+		
+			<p>
+				<%= submit_tag "Save", {:class => "btn btn-primary"}%>
+			</p>
+		
+		<% end %>
+	</div> 
+
+</div>

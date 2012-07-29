@@ -1,0 +1,38 @@
+<div align="center">
+	<h1>Edit a status report</h1>
+	<% flash.each do |name, msg| %>
+		<% if name == :error %> 
+			<div class="alert alert-error" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :success %>
+			<div class="alert alert-success" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+	  				<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% elsif name == :info %>
+			<div class="alert alert-info" style="width: 20%; margin-top: 50px">
+				<a class="close" data-dismiss="alert" href="#">×</a>
+					<%= content_tag :div, msg, :id => "flash_notice" %>
+			</div>
+		<% end %>
+</div>
+
+<% end %>
+ <div class="editor" align="center" >
+  <%= form_tag(save_status_path(:id => @single_s.id), {:method => "post"}) %>
+ <p>
+  <%= label_tag(:title, "Title") %><br/>
+  <%= text_field_tag(:title,  @single_s.title)%><br/>
+ </p>
+ <p>
+  <%= label_tag(:week_ending, "Week Ending") %><br/>
+  <%= calendar_date_select_tag :week_ending, @single_s.week_ending, :embed => true, :size => 28%><br/>
+ </p>
+ <%= text_area_tag(:status,  @single_s[:status], {:style => "width:1000px;height:300px"}) %>
+ <%= raw(puny_mce 'status', 'status', :profile => :all) %>
+ <p>
+  <%= submit_tag 'save', {:class => "button_home"} %>
+ </p>
+ </div>
