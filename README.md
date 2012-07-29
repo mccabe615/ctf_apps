@@ -16,6 +16,6 @@ Vulnerable web applications. Please read the [wiki](https://github.com/WebExploi
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-================================================================================
+    ================================================================================
 
-The CTF applications are provided under the GPL license above.
+    The CTF applications are provided under the GPL license above.
